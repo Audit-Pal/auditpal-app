@@ -1,4 +1,5 @@
 "use client";
+import React, { useState, useEffect } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -17,6 +18,11 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     const { data: session, status } = useSession();
     const { connected, disconnect, publicKey } = useWallet();
     const { theme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     // Check for wallet auth in sessionStorage
     const hasWalletAuth = typeof window !== "undefined" && sessionStorage.getItem("walletAuth");
@@ -72,7 +78,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                                 alt="AuditPal Logo"
                                 className={cn(
                                     "h-full w-full object-contain opacity-90 hover:opacity-100 transition-opacity",
-                                    theme === "dark" && "filter invert"
+                                    mounted && theme === "dark" && "filter invert"
                                 )}
                             />
                         </div>

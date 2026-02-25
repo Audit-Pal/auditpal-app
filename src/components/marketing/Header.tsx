@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SignUpModal, SignUpSuccessModal } from "@/components/SignUpModal";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { useTheme } from "next-themes";
@@ -13,6 +13,11 @@ export function Header() {
     const [showSignUp, setShowSignUp] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
     const { theme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const handleSignUp = (displayName: string, method: string) => {
         console.log("Signed up:", displayName, method);
@@ -32,7 +37,7 @@ export function Header() {
                                 alt="AuditPal Logo"
                                 className={cn(
                                     "h-full w-full object-contain opacity-90 hover:opacity-100 transition-opacity",
-                                    theme === "dark" && "filter invert"
+                                    mounted && theme === "dark" && "filter invert"
                                 )}
                             />
                         </div>

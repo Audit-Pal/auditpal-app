@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -12,16 +12,14 @@ import { cn } from "@/lib/utils";
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <header className="fixed top-0 z-50 w-full border-b border-border bg-background">
-      {/* Global Under Construction Banner - Green Theme */}
-      <div className="bg-kast-teal/10 border-b border-kast-teal/20 py-2 flex items-center justify-center gap-3 backdrop-blur-md">
-        <Construction className="w-3.5 h-3.5 text-kast-teal animate-pulse" />
-        <span className="text-[10px] md:text-[11px] font-black text-kast-teal uppercase tracking-[0.1em] leading-none drop-shadow-[0_0_8px_rgba(30,186,152,0.4)]">
-          System Under Construction • Beta Testing In Progress
-        </span>
-      </div>
 
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         <div className="flex items-center gap-3">
@@ -32,7 +30,7 @@ export function Header() {
                 alt="Audit Subnet Logo"
                 className={cn(
                   "h-full w-full object-contain opacity-90 hover:opacity-100 transition-opacity",
-                  theme === "dark" && "filter invert"
+                  mounted && theme === "dark" && "filter invert"
                 )}
               />
             </div>
