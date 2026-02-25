@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -12,11 +12,6 @@ import { cn } from "@/lib/utils";
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   return (
     <header className="fixed top-0 z-50 w-full border-b border-border bg-background">
@@ -28,10 +23,7 @@ export function Header() {
               <img
                 src="/audis.jpg"
                 alt="Audit Subnet Logo"
-                className={cn(
-                  "h-full w-full object-contain opacity-90 hover:opacity-100 transition-opacity",
-                  mounted && theme === "dark" && "filter invert"
-                )}
+                className="h-full w-full object-contain opacity-90 hover:opacity-100 transition-opacity dark:invert"
               />
             </div>
             <span className="text-xl font-black tracking-tighter text-foreground group-hover:text-kast-teal transition-colors duration-300 uppercase">

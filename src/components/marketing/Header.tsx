@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { SignUpModal, SignUpSuccessModal } from "@/components/SignUpModal";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { useTheme } from "next-themes";
@@ -13,11 +13,6 @@ export function Header() {
     const [showSignUp, setShowSignUp] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
     const { theme } = useTheme();
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
 
     const handleSignUp = (displayName: string, method: string) => {
         console.log("Signed up:", displayName, method);
@@ -35,10 +30,7 @@ export function Header() {
                             <img
                                 src="/audis.jpg"
                                 alt="AuditPal Logo"
-                                className={cn(
-                                    "h-full w-full object-contain opacity-90 hover:opacity-100 transition-opacity",
-                                    mounted && theme === "dark" && "filter invert"
-                                )}
+                                className="h-full w-full object-contain opacity-90 hover:opacity-100 transition-opacity dark:invert"
                             />
                         </div>
                         <span className="font-sans font-extrabold text-xl tracking-wide group-hover:text-kast-teal transition-colors text-foreground">AuditPal</span>

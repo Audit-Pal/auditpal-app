@@ -24,11 +24,6 @@ export default function OptimizePage() {
     const initialView = searchParams.get("view") === "history" ? "history" : "workspace";
     const [activeView, setActiveView] = useState<'workspace' | 'history'>(initialView);
     const { theme } = useTheme();
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
     const [isRegistered, setIsRegistered] = useState(false);
     const [showRegistration, setShowRegistration] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
@@ -58,10 +53,7 @@ export default function OptimizePage() {
                                     <img
                                         src="/audis.jpg"
                                         alt="AuditPal Logo"
-                                        className={cn(
-                                            "h-full w-full object-contain opacity-90 hover:opacity-100 transition-opacity",
-                                            mounted && theme === "dark" && "filter invert"
-                                        )}
+                                        className="h-full w-full object-contain opacity-90 hover:opacity-100 transition-opacity dark:invert"
                                     />
                                 </div>
                                 <span className="font-sans font-black text-xl tracking-tighter group-hover:text-kast-teal transition-colors text-foreground">AuditPal</span>
