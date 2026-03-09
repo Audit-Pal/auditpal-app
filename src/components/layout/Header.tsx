@@ -27,7 +27,7 @@ export function Header() {
               />
             </div>
             <span className="text-xl font-black tracking-tighter text-foreground group-hover:text-kast-teal transition-colors duration-300 uppercase">
-              AUDITPAL <span className="text-kast-teal ml-1">SUBNET</span>
+              AUDITPAL <span className="text-kast-teal ml-1">CO-PILOT</span>
             </span>
           </Link>
           <div className="hidden lg:flex items-center px-2 py-0.5 rounded-sm border border-kast-teal/20 bg-kast-teal/10">

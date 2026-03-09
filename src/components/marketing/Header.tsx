@@ -33,7 +33,9 @@ export function Header() {
                                 className="h-full w-full object-contain opacity-90 hover:opacity-100 transition-opacity dark:invert"
                             />
                         </div>
-                        <span className="font-sans font-extrabold text-xl tracking-wide group-hover:text-kast-teal transition-colors text-foreground">AuditPal</span>
+                        <span className="font-sans font-extrabold text-xl tracking-wide group-hover:text-kast-teal transition-colors text-foreground">
+                            AuditPal <span className="text-kast-teal ml-1 uppercase">Co-pilot</span>
+                        </span>
                     </Link>
 
                     <div className="flex items-center gap-4">
