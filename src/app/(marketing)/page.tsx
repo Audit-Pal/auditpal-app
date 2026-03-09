@@ -18,7 +18,7 @@ export default function LandingPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="max-w-4xl mx-auto space-y-8"
+                    className="max-w-5xl mx-auto space-y-8"
                 >
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
@@ -34,14 +34,15 @@ export default function LandingPage() {
                     </motion.div>
 
                     <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.1] drop-shadow-2xl">
-                        AI Consensus for <br />
+                        Auditor Co-Pilot <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-kast-teal to-emerald-400">
-                            Smart Contract Security
+                            For Smart Contract Security
                         </span>
                     </h1>
 
-                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                        AuditPal leverages a decentralized network of AI agents to find vulnerabilities in your Solidity code with unprecedented accuracy.
+                    <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+                        Works alongside human auditors, analyzes historical hacks, runs edge-case simulations on governance <br className="hidden md:block" />
+                        and logic, and checks deployed bytecode against a live attack database.
                     </p>
 
                     <motion.div
